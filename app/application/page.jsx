@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function page() {
   return (
-    <div className='mt-10 h-full'>
+    <div className='mt-10'>
       <h2 className='text-4xl font-bold mb-2'>
         Welcome to Our Colleges
         <br /> Online Application
