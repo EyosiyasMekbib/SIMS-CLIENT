@@ -58,6 +58,13 @@ export default function SignupForm() {
   }
   return (
     <Form {...form}>
+      <h2 className='text-4xl font-bold mb-2'>
+        Welcome to Our Colleges
+        <br /> Online Application
+      </h2>
+      <h3 className='text-lg font-medium mb-10 text-gray-600'>
+        Start your journey with us today!
+      </h3>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className='space-y-8 w-10/12'
@@ -250,6 +257,13 @@ export default function SignupForm() {
         </div>
         <Button type='submit'>Apply</Button>
       </form>
+      <div className='relative flex justify-start text-xs uppercase mt-8 mb-3'>
+        <span className='bg-background pr-5 text-muted-foreground'>
+          Already Have an Account?
+        </span>
+      </div>
+
+      <Button variant='outline'>Sign In</Button>
     </Form>
   );
 }
