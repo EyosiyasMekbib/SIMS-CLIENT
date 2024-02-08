@@ -21,8 +21,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 const SignupFormSchema = z.object({
   firstName: z.string(),
@@ -263,7 +264,12 @@ export default function SignupForm() {
         </span>
       </div>
 
-      <Button variant='outline'>Sign In</Button>
+      <Link
+        href='/application/signin'
+        className={buttonVariants({ variant: "outline" })}
+      >
+        Sign In
+      </Link>
     </Form>
   );
 }

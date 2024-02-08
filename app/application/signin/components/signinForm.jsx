@@ -11,7 +11,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 const SigninFormSchema = z.object({
   email: z.string().email({ message: "Please insert a valid email address" }),
@@ -72,7 +73,12 @@ export default function SigninForm() {
           Dont have an account?
         </span>
       </div>
-      <Button variant='outline'>Apply</Button>
+      <Link
+        href='/application/apply'
+        className={buttonVariants({ variant: "outline" })}
+      >
+        Apply
+      </Link>
     </Form>
   );
 }
