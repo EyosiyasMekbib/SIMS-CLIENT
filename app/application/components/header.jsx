@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Logo from "@/public/images/logo.svg";
 
-export default function siteHeader() {
+export default function Header() {
   return (
     <div className='border-b'>
-      <div className='flex h-16 items-center px-6'>
+      <div className='flex h-16 items-center px-20'>
         <Image src={Logo} alt='logo' width={65} />
       </div>
     </div>
