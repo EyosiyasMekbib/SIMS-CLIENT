@@ -10,13 +10,8 @@ export default function page() {
         <SignupForm />
       </div>
 
-      <div className='lg:w-1/2 h-full'>
-        <Image
-          src={Hero}
-          alt='hero image'
-          className='object-cover h-full w-full'
-          priority
-        />
+      <div className='lg:w-1/2 h-[90vh] flex items-center'>
+        <Image src={Hero} alt='hero image' priority className='w-full' />
       </div>
     </div>
   );

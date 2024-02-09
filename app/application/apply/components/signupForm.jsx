@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, watch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -16,7 +16,9 @@ import {
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -34,9 +36,15 @@ const SignupFormSchema = z.object({
     .string()
     .min(10, { message: "Phone number should be at least 10 digits" })
     .max(15),
-  selectedProgram: z.string().nonempty(),
-  selectedDiscipline: z.string().nonempty(),
-  selectedProgramType: z.string().nonempty(),
+  selectedProgram: z
+    .string()
+    .nonempty({ message: "Please select a discipline" }),
+  selectedDiscipline: z
+    .string()
+    .nonempty({ message: "Please select a program" }),
+  selectedProgramType: z
+    .string()
+    .nonempty({ message: "Please select a program type" }),
 });
 
 export default function SignupForm() {
@@ -145,25 +153,25 @@ export default function SignupForm() {
             name='selectedProgram'
             render={({ field }) => (
               <FormItem>
-                {/* <FormLabel>Selected Program</FormLabel> */}
-                <FormControl>
-                  <Select
-                    {...field}
-                    className='block w-full p-2 border rounded-md'
-                  >
-                    <SelectTrigger className='w-full'>
-                      <SelectValue placeholder='Select Program' />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem values='undergratuate'>
+                <FormLabel>Select Program</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className='block w-full p-2 border rounded-md'
+                >
+                  <SelectTrigger className='w-full'>
+                    <SelectValue placeholder='Select Program' {...field} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Programs</SelectLabel>
+                      <SelectItem value='undergratuate'>
                         Undergraduate
                       </SelectItem>
-                      <SelectItem values='postgratuate'>
-                        Postgraduate
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
+                      <SelectItem value='postgratuate'>Postgraduate</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}
@@ -173,25 +181,36 @@ export default function SignupForm() {
             name='selectedDiscipline'
             render={({ field }) => (
               <FormItem>
-                {/* <FormLabel>Selected Program</FormLabel> */}
-                <FormControl>
-                  <Select
-                    {...field}
-                    className='block w-full p-2 border rounded-md'
-                  >
-                    <SelectTrigger className='w-full'>
-                      <SelectValue placeholder='Select Discipline' />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem values='undergratuate'>
-                        Undergraduate
+                <FormLabel>Select Discipline</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className='block w-full p-2 border rounded-md'
+                >
+                  <SelectTrigger className='w-full'>
+                    <SelectValue placeholder='Select Discipline' />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Undergraduate</SelectLabel>
+                      <SelectItem value='Software Engineering'>
+                        Software Engineering
                       </SelectItem>
-                      <SelectItem values='postgratuate'>
-                        Postgraduate
+                      <SelectItem value='Information Systems & Technology'>
+                        Information Systems & Technology
                       </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
+                    </SelectGroup>
+                    <SelectGroup>
+                      <SelectLabel>Postgraduate</SelectLabel>
+                      <SelectItem value='Enterprise System'>
+                        Enterprise System
+                      </SelectItem>
+                      <SelectItem value='Information Systems Managment'>
+                        Information Systems Managment
+                      </SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}
@@ -201,23 +220,23 @@ export default function SignupForm() {
             name='selectedProgramType'
             render={({ field }) => (
               <FormItem>
-                {/* <FormLabel>Selected Program</FormLabel> */}
-                <FormControl>
-                  <Select
-                    {...field}
-                    className='block w-full p-2 border rounded-md'
-                  >
-                    <SelectTrigger className='w-full'>
-                      <SelectValue placeholder='Select Program Type' />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem values='regular'>Regular</SelectItem>
-                      <SelectItem values='extenstion'>Extenstion</SelectItem>
-                      <SelectItem values='extenstion'>Weekend</SelectItem>
-                      <SelectItem values='extenstion'>Summer</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
+                <FormLabel>Select Program Type</FormLabel>
+
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className='block w-full p-2 border rounded-md'
+                >
+                  <SelectTrigger className='w-full'>
+                    <SelectValue placeholder='Select Program Type' />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value='regular'>Regular</SelectItem>
+                    <SelectItem value='extenstion'>Extenstion</SelectItem>
+                    <SelectItem value='weekend'>Weekend</SelectItem>
+                    <SelectItem value='summer'>Summer</SelectItem>
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}
