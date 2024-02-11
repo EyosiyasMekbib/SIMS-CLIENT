@@ -4,8 +4,8 @@ import Hero from "@/public/images/hero.webp";
 
 export default function page() {
   return (
-    <div className='flex flex-col lg:flex-row flex-grow h-fit'>
-      <div className='mt-10 lg:w-1/2 h-full px-20 pt-[5vh]'>
+    <div className='flex justify-between items-center h-nonav'>
+      <div className='col-start-1 col-span-1'>
         <SigninForm />
       </div>
 

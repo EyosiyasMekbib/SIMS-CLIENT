@@ -36,12 +36,12 @@ export default function SigninForm() {
   };
 
   return (
-    <Form {...form}>
+    <Form {...form} className=''>
       <h2 className='text-4xl font-bold mb-2'>Welcome back!</h2>
       <h3 className='text-lg font-medium mb-10 text-gray-600'>
         Sign in to continue your journey with us.
       </h3>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-5 w-1/2'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-5'>
         <FormField
           control={form.control}
           name='email'
