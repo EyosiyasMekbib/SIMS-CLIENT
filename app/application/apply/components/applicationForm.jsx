@@ -27,7 +27,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
-const SignupFormSchema = z.object({
+const ApplicationFormSchema = z.object({
   firstName: z.string(),
   middleName: z.string(),
   lastName: z.string(),
@@ -47,9 +47,9 @@ const SignupFormSchema = z.object({
     .nonempty({ message: "Please select a program type" }),
 });
 
-export default function SignupForm() {
+export default function ApplicationForm() {
   const form = useForm({
-    resolver: zodResolver(SignupFormSchema),
+    resolver: zodResolver(ApplicationFormSchema),
     defaultValues: {
       firstName: "",
       middleName: "",

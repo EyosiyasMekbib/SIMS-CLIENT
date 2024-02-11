@@ -1,4 +1,4 @@
-import SignupForm from "@/app/application/apply/components/signupForm";
+import SignupForm from "@/app/application/apply/components/applicationForm";
 import { Button } from "@/components/ui/button";
 
 export default function page() {
