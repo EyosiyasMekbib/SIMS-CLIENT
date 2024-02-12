@@ -106,7 +106,7 @@ export default function ApplicationForm() {
 
   return (
     <Form {...form}>
-      <h2 className='text-4xl font-bold mb-2'>
+      <h2 className='text-5xl font-bold mb-2 font-merriweather'>
         Welcome to Our Colleges
         <br /> Online Application
       </h2>

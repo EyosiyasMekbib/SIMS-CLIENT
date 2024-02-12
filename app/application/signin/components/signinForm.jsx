@@ -71,9 +71,12 @@ export default function SigninForm() {
             </FormItem>
           )}
         />
-        <Button className='w-full' type='submit'>
+        <Link
+          href='/application/apply'
+          className={`w-full ${buttonVariants()}`}
+        >
           Sign In
-        </Button>
+        </Link>
       </form>
       <div className='flex justify-center text-xs uppercase mt-5 mb-3'>
         <span className='bg-background text-muted-foreground '>
